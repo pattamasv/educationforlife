@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('yuva', { title: 'Express' });
 });
 
+router.post('/', function(req, res, next) {
+    res.render('yuva', { title: 'Express' });
+  });
+
 module.exports = router;
