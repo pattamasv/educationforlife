@@ -78,28 +78,40 @@
 
 	<div align = "center">
 	<div style = "background-color: pink ;margin-top:0px;margin-bottom:20px;width:33.33%;width:calc(33.33% - ( ( 4% + 4% ) * 0.3333 ) );margin-right: 0%">
-		<img src="../public/images/paypal.png">
+        <img src="../public/images/paypal.png">
+        
 		<form id ="frm1" action="yuva" method="post">
             <label>Firstname :</label>
-            <input placeholder=" Firstname"><br><br>
+            <input name="first" placeholder=" Firstname"><br><br>
 
             <label>Lastname :</label>
-            <input placeholder="Lastname"><br><br>
+            <input name="last" placeholder="Lastname"><br><br>
 
             <label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Date :</label>
-            <input placeholder=" dd/mm/yyyy"> <br><br>
+            <input name="date" placeholder=" dd/mm/yyyy"> <br><br>
             
             <label> &nbsp Amount :</label>
-            <input placeholder=" THB">
-			<br><br><input onclick="myFunction()" class="button-default"  name="submit" type="submit" value="donate">
+            <input name="amount" placeholder=" THB">
+            
+            <br><br>
+
+            <a href=" /yuva/thanks">บริจาค</a>
+
+            <br><br><input onclick="myFunction()" class="button-default"  name="submit" type="submit" value="donate">
             <script>
                 function myFunction() {
                 alert("Thanks you for your donation.");
                 document.getElementById("frm1").submit();
                  }
             </script>
+
         </form>
+
+       
 		
 <br><br>
 </div>
 </div>
+
+    </body>
+</html>
