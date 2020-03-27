@@ -9,7 +9,8 @@ var usersRouter = require('./routes/users');
 var indexRouter = require('./routes/index');
 var yuvaRouter = require('./routes/yuva');
 var edfRouter = require('./routes/edf');
-
+var aboutRouter = require('./routes/about');
+var contactRouter = require('./routes/contact');
 
 
 var app = express();
@@ -30,6 +31,8 @@ app.use('/users', usersRouter);
 app.use('/index', indexRouter);
 app.use('/yuva', yuvaRouter);
 app.use('/edf', edfRouter);
+app.use('/about', aboutRouter);
+app.use('/contact', contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
