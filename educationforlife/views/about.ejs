@@ -11,6 +11,8 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 </head>
 
 <style>
@@ -29,7 +31,6 @@
 	p	  {
 		font-size:20px;
 		color:White;
-    
 	}
 
 	h1 {
@@ -47,12 +48,20 @@
 		padding : 5px;
 		font-size : 18px;
 	}
-  div {
-    
+  
+  .card-body {
+    width: 800px;
   }
+  .hd {
+    font-size:28px;
+	  color:Black
+  }
+
+
 </style>
 
 <body>
+
 	<div style="background-color:white;" >
 	<h1>Education for Life 👦👧👦👧</h1>
 	</div>
@@ -145,7 +154,64 @@
               </table>
               </div>
 
-              <a href="chart"> กราฟเด็กด้อยโอกาส</a>
+            
+<div style="background-color: #ABCFD1;">
+  <br><br>
+<p class="hd">&nbsp &nbsp กราฟแสดงจำนวนนักเรียนด้อยโอกาส (คน) ปี พ.ศ. 2548 - 2556 </p>
+<div class ="card-body">
+  <canvas id="myChart" style="position: relative; height : 200;width : 500"></canvas>
+</div></div>
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['2548', '2549', '2550', '2551', '2552', '2553', '2554', '2555', '2556'],
+        datasets: [{
+            label: '',
+            data: [2793338, 3075341, 1906528, 2706602, 3183001, 3993808, 4298001, 4323142, 4892063],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgb(100, 100, 205, 0.2)',
+                'rgb(255, 80, 80, 0.2)',
+                'rgb(64, 169, 64, 0.2)',
+                
+                
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgb(100, 100, 205, 1)',
+                'rgb(255, 80, 80, 1)',
+                'rgb(64, 169, 64, 1)',
+                
+                
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
 
   </body>
 </html>
