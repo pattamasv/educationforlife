@@ -32,6 +32,24 @@ describe ('Test method toArray', function(){
     
     });
 
+    describe ('Test method toArray', function(){
+        it('Test toArray method', function(){
+                let t = new linkedlist('First Test Case','Second Test Case','Third Test Case');
+                t.append('Four Test Case');
+                var res = t.toArray();
+                assert.strictEqual(res, ['First Test Case','Second Test Case','Third Test Case','Four Test Case']);
+            });
+        });
+
+        describe ('Test method toArray', function(){
+            it('Test toArray method', function(){
+                    let t = new linkedlist('First Test Case','Second Test Case','Third Test Case');
+                    t.append('Four Test Case');
+                    var res = t.getTail();
+                    assert.strictEqual(res, ['Four Test Case']);
+                });
+            });
+
 
     describe ('Test method toArray', function(){
         it('Test toArray method', function(){
@@ -49,14 +67,14 @@ describe ('Test method toArray', function(){
                     t.append('First Test Case');
                     t.append('Second Test Case');
                     t.deleteHead();
-                    var res = t.toArray();
+                    var res = t.deleteHead();
                     assert.strictEqual(res, ['Second Test Case']);
                 });
                 it('Test toArray method', function(){
                     let t = new linkedlist();
                     t.append('First Test Case');
-                    t.append('Second Test Case');
                     t.deleteHead();
+                    t.append('Second Test Case');
                     var res = t.getHead();
                     assert.strictEqual(res, ['Second Test Case']);
                 });
@@ -142,7 +160,7 @@ describe ('Test method toArray', function(){
                     t.append('Second Test Case');
                     t.append('Third Test Case');
                     t.find();
-                     var res = t.getTail();
+                     var res = t.toArray();
                     assert.strictEqual(res, ['First Test Case','Second Test Case','Third Test Case']);
                     });
                     it('Test toArray method', function(){
@@ -150,8 +168,7 @@ describe ('Test method toArray', function(){
                         t.append('First Test Case');
                         t.append('Second Test Case');
                         t.append('Third Test Case');
-                        t.find('Second Test Case');
-                         var res = t.getTail();
-                        assert.strictEqual(res, ['Third Test Case']);
+                         var res = t.find('Second Test Case');
+                        assert.strictEqual(res, ['Second Test Case']);
                         });
                 });
