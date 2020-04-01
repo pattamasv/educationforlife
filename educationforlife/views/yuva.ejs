@@ -80,30 +80,13 @@
 	<div style = "background-color: pink ;margin-top:0px;margin-bottom:20px;width:33.33%;width:calc(33.33% - ( ( 4% + 4% ) * 0.3333 ) );margin-right: 0%">
         <img src="../public/images/paypal.png">
         
-		<form id ="frm1" action="yuva" method="post">
-            <label>Firstname :</label>
-            <input name="first" id="first" placeholder=" Firstname"><br><br>
-
-            <label>Lastname :</label>
-            <input name="last" id="last" placeholder="Lastname"><br><br>
-
-            <label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Date :</label>
-            <input name="date" placeholder=" dd/mm/yyyy"> <br><br>
-            
-            <label> &nbsp Amount :</label>
-            <input name="amount" placeholder=" THB">
-            
-            <br>
-
-            <br><br><input onclick="myFunction()" class="button-default"  name="submit" type="submit" value="donate">
-            <script>
-                function myFunction() {
-                alert("Thanks you for your donation.");
-                document.getElementById("frm1").submit();
-                 }
-            </script>
-
-        </form>
+        <form class="donate-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input name="cmd" type="hidden" value="_xclick"><input name="business" type="hidden" value="ybf@ybf.premier.co.th">
+        <input name="item_number" type="hidden" value="ybf_donate">THB <input class="form-item form-text" name="amount" type="text" placeholder="ระบุจำนวนเงิน">
+        <input name="currency_code" type="hidden" value="THB"><input name="button_subtype" type="hidden" value="services">
+        <input name="no_note" type="hidden" value="0"><input name="bn" type="hidden" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+        <br><input class="button-default" alt="PayPal - The safer, easier way to pay online!" name="submit" type="submit" value="donate">
+  </form>
 
        
 		

@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">71.73</p>
+      <p class="stat">74.22</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">100</p>
+      <p class="stat">179</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">28.62</p>
+      <p class="stat">23.82</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">0.35</p>
+      <p class="stat">0.37</p>
     </div>
   </div>
 </div>
@@ -109,6 +109,19 @@ class LinkedList {
   getTail(){
     return this.tail;
   }
+  
+  prepend(value) {
+    // Make new node to be a head.
+    const newNode = new LinkedListNode(value, this.head);
+    this.head = newNode;
+
+    // If there is no tail yet let&#039;s make new node a tail.
+    if (!this.tail) {
+      this.tail = newNode;
+    }
+
+    return this;
+  }
 
   //TBD
   append(value) {
@@ -120,20 +133,58 @@ class LinkedList {
       
       return this;
     }
-
+    /*
     // Attach new node to the end of linked list.
     this.tail.next = newNode;
     this.tail = newNode;
 
     return this;
+    */
   }
+/*
+  // TBD
+  delete(value) {
+    if (!this.head) {
+      return null;
+    }
 
+    let deletedNode = null;
+
+    // If the head must be deleted then make next node that is differ
+    // from the head to be a new head.
+    while (this.head &amp;&amp; this.compare.equal(this.head.value, value)) {
+      deletedNode = this.head;
+      this.head = this.head.next;
+    }
+
+    let currentNode = null;
+
+    if (currentNode !== null) {
+      // If next node must be deleted then make next node to be a next next one.
+      while (currentNode.next) {
+        if (this.compare.equal(currentNode.next.value, value)) {
+          deletedNode = currentNode.next;
+          currentNode.next = currentNode.next.next;
+        } else {
+          currentNode = currentNode.next;
+        }
+      }
+    }
+
+    // Check if tail must be deleted.
+    if (this.compare.equal(this.tail.value, value)) {
+      this.tail = currentNode;
+    }
+
+    return deletedNode;
+  }
+*/
  
   find(value = undefined ) {
     if (this.head) {
       return null;
     }
-
+/*
     let currentNode = this.head;
 
     while (currentNode) {
@@ -148,28 +199,27 @@ class LinkedList {
     }
 
     return null;
+    */
   }
-  
 
  
  // TBD
-  deleteHead() {
-    if (!this.head) {
-      return null;
-    }
-
-    const deletedHead = this.head;
-
-    if (this.head.next) {
-      this.head = this.head.next;
-    } else {
-      this.tail = null;
-    } 
-
-    return deletedHead;
+ deleteHead() {
+  if (!this.head) {
+    return null;
   }
+  /*
+  const deletedHead = this.head;
 
+  if (this.head.next) {
+    this.head = this.head.next;
+  } */else {
+    this.tail = null;
+  } 
 
+  return deletedHead;
+  
+}
   //TBD
   toArray() {
     const nodes = [];
@@ -183,8 +233,37 @@ class LinkedList {
     return nodes;
   }
 
-  
+  /*
+  toLinkString() {
+    var adata = this.toArray();
+    return adata.map(node =&gt; node.toString()).toString();
+  }
+*/
 
+  reverse() {
+    let currNode = this.head;
+    let prevNode = null;
+    let nextNode = null;
+
+    while (currNode) {
+      // Store next node.
+      nextNode = currNode.next;
+
+      // Change next node of the current node so it would link to previous node.
+      currNode.next = prevNode;
+
+      // Move prevNode and currNode nodes one step forward.
+      prevNode = currNode;
+      currNode = nextNode;
+      
+    }
+
+    // Reset head and tail.
+    this.tail = this.head;
+    this.head = prevNode;
+
+    return this;
+  }
   
 }
 
