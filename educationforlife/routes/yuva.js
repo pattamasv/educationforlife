@@ -15,10 +15,4 @@ router.post('/', function(req, res, next) {
 
   });
 
-
-router.get('/thanks', function(req, res, next) {
-    res.send('Thanks you')
-  });
-
-
 module.exports = router;
